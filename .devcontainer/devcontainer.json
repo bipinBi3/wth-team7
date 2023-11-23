@@ -5,7 +5,13 @@
 		"ghcr.io/devcontainers/features/azure-cli:1": {
 			"installBicep": true,
 			"version": "latest"
-		},
-		"ghcr.io/cirolosapio/devcontainers-features/alpine-gh-copilot-cli:0": {}
+		}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"GitHub.copilot"
+			]
+		}
 	}
 }
