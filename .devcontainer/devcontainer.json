@@ -11,7 +11,9 @@
 		"vscode": {
 			"extensions": [
 				"GitHub.copilot",
-				"GitHub.vscode-github-actions"
+				"GitHub.vscode-github-actions",
+				"ms-azuretools.vscode-bicep",
+				"melt-inc.yamlfmt-vscode"
 			]
 		}
 	}

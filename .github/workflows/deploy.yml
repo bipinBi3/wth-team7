@@ -1,4 +1,4 @@
-name: Deploy
+name: Deploy to Azure
 on:
     workflow_dispatch
 
@@ -6,6 +6,17 @@ jobs:
     jobs1:
         runs-on: ubuntu-latest
         steps: 
-            - uses: azure/login@v1
+            - name: Login
+              uses: azure/login@v1
               with:
                 creds: ${{ secrets.AZUREPRINCIPAL }}
+
+            # Deploy Bicep file
+            - name: Deploy ARM Bicep Template
+              uses: azure/arm-deploy@v1
+              with:
+                # subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+                resourceGroupName: "${{ vars.AZURE_RG }}"
+                template: ./InfrastructureAsCode/main.bicep
+                parameters: 'storagePrefix=mystore storageSKU=Standard_LRS'
+                failOnStdErr: false
