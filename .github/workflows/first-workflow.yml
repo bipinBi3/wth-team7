@@ -14,7 +14,5 @@ jobs:
     jobs2:
       runs-on: ubuntu-latest
       steps: 
-          - name: Cow Says
-            uses: docker://sickcodes/docker-cowsay:latest
-            with:
-              args: "Moo! I'm a cow in your GitHub Actions workflow!"
+          - name: Cowsays
+            uses: mscoutermarsh/cowsays-action@v1
