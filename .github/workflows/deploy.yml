@@ -1,6 +1,16 @@
 name: Deploy to Azure
 on:
-    workflow_dispatch
+    workflow_dispatch:
+        inputs:
+            environmentName:
+                description: 'Environment name'
+                required: true
+                default: 'dev'
+                type: choice
+                options:
+                  - dev
+                  - test
+                  - prod
 
 jobs: 
     jobs1:
@@ -21,5 +31,5 @@ jobs:
                 # subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
                 resourceGroupName: "${{ vars.AZURE_RG }}"
                 template: ./InfrastructureAsCode/main.bicep
-                parameters: 'environment=prod'
+                parameters: 'environment=${{ inputs.environmentName }}'
                 failOnStdErr: false
