@@ -11,3 +11,10 @@ jobs:
 
             - name: Step 2
               run: echo "Executing step 2"
+    jobs2:
+      runs-on: ubuntu-latest
+      steps: 
+          - name: Cow Says
+            uses: docker://sickcodes/docker-cowsay:latest
+            with:
+              args: "Moo! I'm a cow in your GitHub Actions workflow!"
