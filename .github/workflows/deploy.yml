@@ -5,7 +5,10 @@ on:
 jobs: 
     jobs1:
         runs-on: ubuntu-latest
-        steps: 
+        steps:
+            - name: Checkout our repo
+              uses: actions/checkout@v4
+
             - name: Login
               uses: azure/login@v1
               with:
